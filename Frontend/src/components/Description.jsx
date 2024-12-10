@@ -16,7 +16,7 @@ const Description = ({ image_id, desc }) => {
 
         await fetcher(
             "https://tfhmptlcmi.execute-api.eu-north-1.amazonaws.com/production/images/update-description",
-            "POST",
+            "PATCH",
             { image_id, "description":editedDesc }
         );
         setIsEditing(false);
@@ -26,7 +26,7 @@ const Description = ({ image_id, desc }) => {
         setIsLoading(true);
         const { response, data } = await fetcher(
             "https://tfhmptlcmi.execute-api.eu-north-1.amazonaws.com/production/images/generate-caption",
-            "POST",
+            "GET",
             { image_id }
         ); 
         setEditedDesc(data.caption || "");

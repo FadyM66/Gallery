@@ -17,7 +17,7 @@ const ImageDetails = () => {
     const handleConfirm = async (image_id) => {
         const { response, data } = await fetcher(
             `https://tfhmptlcmi.execute-api.eu-north-1.amazonaws.com/production/images/delete-image`,
-            "POST",
+            "DELETE",
             { 'image_id': image_id }
         );
         if (response.status == 200) {

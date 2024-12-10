@@ -88,7 +88,7 @@ def get_images(request):
         return Response({"message": "Internal Server Error"}, status=500)
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 def caption_generator(request):
     """
     Endpoint to generate a caption for an image using AI. The user must own the image.
@@ -129,7 +129,7 @@ def caption_generator(request):
         return Response({"message": "Internal Server Error"}, status=500)
 
 
-@api_view(['POST'])
+@api_view(['PATCH'])
 def update_description(request):
     """
     Endpoint to update the description of an image. The user must own the image.
@@ -207,7 +207,7 @@ def single_image(request, image_id):
         return Response({"message": "Internal Server Error"}, status=500)
 
 
-@api_view(["POST"])
+@api_view(["DELETE"])
 def delete_image(request):
     """
     Endpoint to delete an image. The user must own the image.
